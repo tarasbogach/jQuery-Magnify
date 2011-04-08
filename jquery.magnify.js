@@ -141,10 +141,10 @@
 			if(this._options.triggerEvents==true)this.element.trigger('magnifyafter',{event:event})
 		},
 		disable:function(){
-			$(window).unbind('mousemove',this.render)
+			$('body').unbind('mousemove',this.render)
 		},
 		enable:function(){
-			$(window).bind('mousemove',$.proxy(this.render,this))
+			$('body').bind('mousemove',$.proxy(this.render,this))
 		},
 		destroy:function(){
 			this.disable()
