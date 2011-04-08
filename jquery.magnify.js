@@ -20,6 +20,7 @@
 		this.options(options)
 		this.snapshot(properties)
 		this.properties(properties)
+		this.renderProxy=$.proxy(this.render,this)
 		this.enable()
 	}
 	$.fn.magnify.Magnify.prototype={
@@ -141,10 +142,10 @@
 			if(this._options.triggerEvents==true)this.element.trigger('magnifyafter',{event:event})
 		},
 		disable:function(){
-			$('body').unbind('mousemove',this.render)
+			$('body').unbind('mousemove',this.renderProxy)
 		},
 		enable:function(){
-			$('body').bind('mousemove',$.proxy(this.render,this))
+			$('body').bind('mousemove',this.renderProxy)
 		},
 		destroy:function(){
 			this.disable()
