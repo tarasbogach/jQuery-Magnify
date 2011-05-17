@@ -104,17 +104,20 @@
 					backgroundColor:"#FFFFFF",
 					borderColor:"#000000"
 				});
-				setTimeout(function(el){
-					el
-						.closest('div.reflect')
-						.find('img,canvas').css('width','100%').end()
-						.magnify({
-							distance:200
-						},{
-							width:'200%',
-							height:'200%'
-						});
-				},500,$("img.reflect").reflect())
+//Reflect
+var el=$("img.reflect").reflect();
+var callback=$.proxy(function(){
+	$(this)
+	.closest('div.reflect')
+	.find('img,canvas').css('width','100%').end()
+	.magnify({
+		distance:1000
+	},{
+		width:'200%',
+		height:'200%'
+	});
+},el);
+setTimeout(callback,500);
 			});
 		</script>
 		<style type="text/css">
