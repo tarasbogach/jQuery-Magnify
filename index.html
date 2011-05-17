@@ -105,9 +105,12 @@
 					borderColor:"#000000"
 				});
 			$("img.reflect").reflect()
-			$(".reflect,.reflect img,.reflect canvas")
+			$("div.reflect")
 				.magnify({
-					distance:200
+					distance:200,
+					after:function(){
+						$(this).find('>*').height($(this).height()/2)
+					}
 				},{
 					width:'200%',
 					height:'200%'
