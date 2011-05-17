@@ -104,17 +104,17 @@
 					backgroundColor:"#FFFFFF",
 					borderColor:"#000000"
 				});
-			$("img.reflect").reflect()
-			$("div.reflect")
-				.magnify({
-					distance:200,
-					after:function(){
-						$(this).find('>*').height($(this).height()/2)
-					}
-				},{
-					width:'200%',
-					height:'200%'
-				});
+				setTimeout(function(el){
+					el
+						.closest('div.reflect')
+						.find('img,canvas').css('width','100%').end()
+						.magnify({
+							distance:1000
+						},{
+							width:'200%',
+							height:'200%'
+						});
+				},500,$("img.reflect").reflect())
 			});
 		</script>
 		<style type="text/css">
