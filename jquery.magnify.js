@@ -144,10 +144,10 @@
 			if(this._options.triggerEvents==true)this.element.trigger('magnifyafter',{event:event})
 		},
 		disable:function(){
-			this._properties.listenOn.unbind('mousemove mouseenter mouseleave',this.renderProxy)
+			this._options.listenOn.unbind('mousemove mouseenter mouseleave',this.renderProxy)
 		},
 		enable:function(){
-			this._properties.listenOn.bind('mousemove mouseenter mouseleave',this.renderProxy)
+			this._options.listenOn.bind('mousemove mouseenter mouseleave',this.renderProxy)
 		},
 		destroy:function(){
 			this.disable()
