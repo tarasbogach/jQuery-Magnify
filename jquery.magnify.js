@@ -50,8 +50,10 @@
 					triggerEvents:false,
 					before:null,
 					after:null,
-					delta:'linear'
+					delta:'linear',
+					listenOn:'body'
 				},arguments[0])
+				this._options.listenOn=$(this._options.listenOn)
 				if(typeof(this._options.delta)=='string' && this.delta[this._options.delta]){
 					this._options.delta=this.delta[this._options.delta]
 				}
@@ -142,10 +144,10 @@
 			if(this._options.triggerEvents==true)this.element.trigger('magnifyafter',{event:event})
 		},
 		disable:function(){
-			$('body').unbind('mousemove',this.renderProxy)
+			this._properties.listenOn.unbind('mousemove mouseenter mouseleave',this.renderProxy)
 		},
 		enable:function(){
-			$('body').bind('mousemove',this.renderProxy)
+			this._properties.listenOn.bind('mousemove mouseenter mouseleave',this.renderProxy)
 		},
 		destroy:function(){
 			this.disable()
